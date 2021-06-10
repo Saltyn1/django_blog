@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <nav>
+      <a> Главная</a>
+      {% if user.is_authenticated %}
+      <p> Здравствуйте, {{user.email}}!<p> <a href="{% url 'logout' %}"> Выйти </a>
+      <a href="{% url 'change-password'%} ">Сменить пароль</a>
+      {% else %}
+      <a href="{% url 'login' %}"> Войти </a> |
+      <a href="{%url 'registration' %}"> Зарегистрироваться </a>
+      {%endif%}
+  </nav>
+  {% block body %} {% endblock body %}
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<p><a href="{% url 'create-post' %}">Создать новый пост</a></p>
+  {% for post in posts%}
+    <p> {{post.id}}</p>
+  <p> <a href="{% url 'post-details' post.id  %}">{{post.title}}</a></p>
+  {% endfor %}
+{% endblock body %}
